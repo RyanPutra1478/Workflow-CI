@@ -1,0 +1,25 @@
+name: Retrain Model with MLflow Project
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  retrain:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    - name: Install dependencies
+      run: |
+        pip install mlflow scikit-learn pandas
+    - name: Run MLflow Project
+      run: |
+        mlflow run MLProject --no-conda
