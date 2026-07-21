@@ -26,4 +26,4 @@ jobs:
         sleep 5
     - name: Run MLflow Project
       run: |
-        mlflow run MLProject --env-manager=local
+        mlflow run MLProject --env-manager=local --experiment-name="Wine_Quality_Prediction"
